@@ -22,7 +22,10 @@ def get_company(company):
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
-    return "$" + str(response.json()['price']['regularMarketOpen']['raw'])
+    price =  "$" + str(round(response.json()['price']['regularMarketOpen']['raw'], 2))
+    name = str(response.json()['price']['longName'])
+    answer = name + "  \n  " + price
+    return render_template('index.html', output=answer)
 
 if __name__ == '__main__':
     app.run(debug=True)
