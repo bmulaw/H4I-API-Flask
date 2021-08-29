@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import requests
+import requests, config
 
 app=Flask(__name__, template_folder='templates')
 
@@ -18,7 +18,7 @@ def get_company(company):
     querystring = {"symbol":company,"region":"US"}
     headers = {
         'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com",
-        'x-rapidapi-key': "dfcaddd723msh6b216a6f6b60baep1fb122jsn29391c842471"
+        'x-rapidapi-key': config.api_key
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
