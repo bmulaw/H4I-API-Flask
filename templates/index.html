@@ -9,12 +9,11 @@
 
 
 <body>
-    <form action="{{ url_for('from_html')}}" method="post">
-        <label> Which company's recent stock price do you want to know? </label> 
+    <form action="{{ url_for('get_capital')}}" method="post">
+        <label> Which country's capital do you want to know? </label> 
         <br><br>
-        <input type="text" name="company"> 
+        <input type="text" name="country"> 
     </form>
-    <p>{{ ticker }}</p>
-    <p>{{ output }}</p>
+    <p>{{ name }}: {{ capital }}</p>
 </body>
 </html>
